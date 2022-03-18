@@ -1,0 +1,26 @@
+<body>
+    <h1 id = "peeps">
+        <% users.forEach((user, index) => { %>   
+            <p>
+                <%= user.email %>
+            </p>
+            <form action = "/home/peep/<%= user.id %>" method = "post">
+                <input id = "typePeep" type = "text" name = "message" placeholder = "Peep">
+                <input id = "postPeep" type = "submit" value = "post">
+            </form>
+            <% user.Peeps.forEach((Peep, Peepindex) => { %>    
+            <div id="Peep-<% Peepindex %>">
+            
+                <a style = "font-size: xx-small;">
+                    <%= Peep.message %> - <%= Peep.createdAt %>
+                </a>
+            </div>
+        <% }) %>
+        <% }) %>
+        <h3>
+            <form action = "/" method = "get">
+                <input id = "logout" type = "submit" value = "This is too much...">
+            </form>
+        </h3>
+    </h1>
+</body>
